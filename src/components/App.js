@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const FetchProducts = () => {
+const ProductList = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const FetchProducts = () => {
       try {
         const response = await fetch("https://dummyjson.com/products");
         if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error("Network response was not ok");
         }
         const result = await response.json();
         setData(result);
@@ -30,4 +30,4 @@ const FetchProducts = () => {
   return <pre>{JSON.stringify(data, null, 2)}</pre>;
 };
 
-export default FetchProducts;
+export default ProductList;
